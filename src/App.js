@@ -13,34 +13,45 @@ class App extends Component {
     }
 
     onClick = input => {
+
         if (this.state.clicked.includes(input)) {
             this.setState({
                 score: 0,
-                clicked:[]
+                clicked: []
             })
         } else {
-            this.setState({
-                score: this.state.score + 1
-            })
+
+            if (this.state.score === this.state.highScore) {
+                this.setState({
+                    score: this.state.score + 1,
+                    highScore: this.state.highScore + 1
+                })
+            } else {
+                this.setState({
+                    score: this.state.score + 1
+                })
+            }
+
         }
         this.state.clicked.push(input)
+
     }
 
     render() {
         return (
             <div className="container">
-            <Header score={this.state.score} highScore={this.state.highScore}/>
-            <Wrapper>
-                {Characters.map(
-                    input =>
-                        <FriendCard
-                            key={input.id}
-                            id={input.id}
-                            image={input.image}
-                            onClick={this.onClick}
-                        />)
-                }
-            </Wrapper>
+                <Header score={this.state.score} highScore={this.state.highScore} />
+                <Wrapper>
+                    {Characters.map(
+                        input =>
+                            <FriendCard
+                                key={input.id}
+                                id={input.id}
+                                image={input.image}
+                                onClick={this.onClick}
+                            />)
+                    }
+                </Wrapper>
             </div>)
     }
 
