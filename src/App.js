@@ -8,7 +8,8 @@ class App extends Component {
 
     state = {
         clicked: [],
-        score: 0
+        score: 0,
+        highScore: 0
     }
 
     onClick = input => {
@@ -28,7 +29,7 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-            <Header score={this.state.score}/>
+            <Header score={this.state.score} highScore={this.state.highScore}/>
             <Wrapper>
                 {Characters.map(
                     input =>

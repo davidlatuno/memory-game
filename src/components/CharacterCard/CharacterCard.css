@@ -20,8 +20,8 @@
     width: 100%;
 }
 
-.active {
-    height: 150px;
-    width: 150px;
-    box-shadow: 0 6px 12px #999, 0 6px 12px #999;
+.img-container:hover {
+    height: 160px;
+    width: 160px;
+    box-shadow: 0 8px 14px #999, 0 8px 14px #999;
 }
