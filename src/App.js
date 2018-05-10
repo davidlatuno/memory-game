@@ -7,23 +7,22 @@ import Header from "./components/Header"
 class App extends Component {
 
     state = {
-        clicked: 0,
+        clicked: [],
         score: 0
     }
 
     onClick = input => {
-        if (input === this.state.clicked) {
+        if (this.state.clicked.includes(input)) {
             this.setState({
-                score: 0
+                score: 0,
+                clicked:[]
             })
         } else {
             this.setState({
                 score: this.state.score + 1
             })
         }
-        this.setState ({
-            clicked: input
-        })
+        this.state.clicked.push(input)
     }
 
     render() {
