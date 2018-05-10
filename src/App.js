@@ -10,7 +10,8 @@ class App extends Component {
         array: Characters,
         clicked: [],
         score: 0,
-        highScore: 0
+        highScore: 0,
+        message: "Click On An Image to Begin"
     }
 
     shuffleArray(array) {
@@ -26,21 +27,32 @@ class App extends Component {
 
         this.shuffleArray(this.state.array)
 
-        if (this.state.clicked.includes(input) || this.state.score === Characters.length) {
+        if (this.state.score === Characters.length) {
+            return this.setState({
+                score: 0,
+                clicked: [],
+                message: "Yay You Win, Click An Image to Play Again"
+            })
+        }
+
+        if (this.state.clicked.includes(input)) {
             this.setState({
                 score: 0,
-                clicked: []
+                clicked: [],
+                message: "Image Clicked Twice, Try Again"
             })
         } else {
 
             if (this.state.score === this.state.highScore) {
                 this.setState({
                     score: this.state.score + 1,
-                    highScore: this.state.highScore + 1
+                    highScore: this.state.highScore + 1,
+                    message: "Correct!"
                 })
             } else {
                 this.setState({
-                    score: this.state.score + 1
+                    score: this.state.score + 1,
+                    message: "Correct!"
                 })
             }
 
@@ -51,12 +63,11 @@ class App extends Component {
 
     render() {
         if (this.state.score === Characters.length) {
-            alert("YAY");
             this.onClick();
         }
         return (
             <div className="container">
-                <Header score={this.state.score} highScore={this.state.highScore} />
+                <Header score={this.state.score} highScore={this.state.highScore} message={this.state.message} />
                 <Wrapper>
                     {this.state.array.map(
                         input =>
