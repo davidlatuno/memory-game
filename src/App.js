@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
-import FriendCard from "./components/CharacterCard"
+import CharacterCard from "./components/CharacterCard"
 import Characters from "./characters.json"
 import Header from "./components/Header"
 
@@ -71,7 +71,7 @@ class App extends Component {
                 <Wrapper>
                     {this.state.array.map(
                         input =>
-                            <FriendCard
+                            <CharacterCard
                                 key={input.id}
                                 id={input.id}
                                 image={input.image}
