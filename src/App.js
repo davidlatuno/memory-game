@@ -13,8 +13,7 @@ class App extends Component {
     }
 
     onClick = input => {
-
-        if (this.state.clicked.includes(input)) {
+        if (this.state.clicked.includes(input) || this.state.score === Characters.length) {
             this.setState({
                 score: 0,
                 clicked: []
@@ -38,6 +37,10 @@ class App extends Component {
     }
 
     render() {
+        if (this.state.score === Characters.length) {
+            alert("YAY");
+            this.onClick();
+        }
         return (
             <div className="container">
                 <Header score={this.state.score} highScore={this.state.highScore} />
