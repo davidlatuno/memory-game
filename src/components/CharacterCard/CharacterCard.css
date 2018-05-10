@@ -10,25 +10,18 @@
 }
 
 .card > .img-container {
-  height: 60%;
+  width: 100%;
   overflow: hidden;
   text-align: center;
   background:#6CADDC;
 }
+
 .card > .img-container > img {
-  width: 60%
+    width: 100%;
 }
 
-.card > .content {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 15px;
-}
-
-.card > .content > ul {
-  list-style-type: none;
-}
-
-.card > .content > ul > li {
-  margin-top: 18px;
+.active {
+    height: 350px;
+    width: 350px;
+    box-shadow: 0 6px 12px #999, 0 6px 12px #999;
 }
