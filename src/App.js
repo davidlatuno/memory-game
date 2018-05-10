@@ -11,7 +11,7 @@ class App extends Component {
         clicked: [],
         score: 0,
         highScore: 0,
-        message: "Click On An Image to Begin"
+        message: "Don't Click On An Image Twice!"
     }
 
     shuffleArray(array) {
